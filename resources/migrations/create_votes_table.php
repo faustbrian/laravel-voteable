@@ -4,8 +4,16 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateVotesTable.
+ *
+ * @author DraperStudio <hello@draperstudio.tech>
+ */
 class CreateVotesTable extends Migration
 {
+    /**
+     *
+     */
     public function up()
     {
         Schema::create('votes', function (Blueprint $table) {
@@ -17,6 +25,9 @@ class CreateVotesTable extends Migration
         });
     }
 
+    /**
+     *
+     */
     public function down()
     {
         Schema::dropIfExists('votes');

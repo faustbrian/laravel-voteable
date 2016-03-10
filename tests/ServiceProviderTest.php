@@ -9,17 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace DraperStudio\Voteable\Contracts;
+namespace DraperStudio\Tests\Voteable;
+
+use GrahamCampbell\TestBenchCore\ServiceProviderTrait;
 
 /**
- * Interface Voteable.
+ * This is the service provider test class.
  *
  * @author DraperStudio <hello@draperstudio.tech>
  */
-interface Voteable
+class ServiceProviderTest extends AbstractTestCase
 {
-    /**
-     * @return mixed
-     */
-    public function votes();
+    use ServiceProviderTrait;
 }
