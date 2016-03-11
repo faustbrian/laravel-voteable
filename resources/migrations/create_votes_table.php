@@ -11,9 +11,6 @@ use Illuminate\Database\Migrations\Migration;
  */
 class CreateVotesTable extends Migration
 {
-    /**
-     *
-     */
     public function up()
     {
         Schema::create('votes', function (Blueprint $table) {
@@ -25,9 +22,6 @@ class CreateVotesTable extends Migration
         });
     }
 
-    /**
-     *
-     */
     public function down()
     {
         Schema::dropIfExists('votes');

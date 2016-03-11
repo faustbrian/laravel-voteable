@@ -25,7 +25,7 @@ class ServiceProvider extends \DraperStudio\ServiceProvider\ServiceProvider
     {
         $this->publishMigrations();
     }
-    
+
     /**
      * Get the default package name.
      *
