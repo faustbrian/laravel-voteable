@@ -2,9 +2,9 @@
 
 namespace BrianFaust\Voteable\Traits;
 
-use BrianFaust\Voteable\Models\Vote;
+use BrianFaust\Voteable\Vote;
 
-trait Voteable
+trait HasVotesTrait
 {
     public function votes()
     {

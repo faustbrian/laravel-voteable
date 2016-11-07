@@ -28,18 +28,16 @@ php artisan vendor:publish --provider="BrianFaust\Voteable\ServiceProvider" && p
 ``` php
 <?php
 
-
 namespace App;
 
-use BrianFaust\Voteable\Contracts\Voteable;
-use BrianFaust\Voteable\Traits\Voteable as VoteableTrait;
+use BrianFaust\Voteable\HasVotesTrait;
+use BrianFaust\Voteable\Interfaces\HasVotes;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model implements Voteable
+class User extends Model implements HasVotes
 {
-    use VoteableTrait;
+    use HasVotesTrait;
 }
-
 ```
 
 ### Sum of all votes

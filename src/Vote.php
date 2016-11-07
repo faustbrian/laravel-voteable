@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Voteable\Models;
+namespace BrianFaust\Voteable;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

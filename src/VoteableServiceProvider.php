@@ -2,7 +2,9 @@
 
 namespace BrianFaust\Voteable;
 
-class ServiceProvider extends \BrianFaust\ServiceProvider\ServiceProvider
+use BrianFaust\ServiceProvider\ServiceProvider;
+
+class VoteableServiceProvider extends ServiceProvider
 {
     public function boot()
     {
