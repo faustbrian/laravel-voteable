@@ -19,7 +19,7 @@ And then include the service provider within `app/config/app.php`.
 To get started, you'll need to publish the vendor assets and migrate:
 
 ```
-php artisan vendor:publish --provider="BrianFaust\Voteable\ServiceProvider" && php artisan migrate
+php artisan vendor:publish --provider="BrianFaust\Voteable\VoteableServiceProvider" && php artisan migrate
 ```
 
 ## Usage
