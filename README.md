@@ -12,7 +12,7 @@ And then include the service provider within `app/config/app.php`.
 
 ``` php
 'providers' => [
-    BrianFaust\Voteable\ServiceProvider::class
+    BrianFaust\Voteable\VoteableServiceProvider::class
 ];
 ```
 
