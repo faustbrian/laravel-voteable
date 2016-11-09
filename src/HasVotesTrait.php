@@ -1,6 +1,6 @@
 <?php
 
-namespace BrianFaust\Voteable\Traits;
+namespace BrianFaust\Voteable;
 
 use BrianFaust\Voteable\Vote;
 
