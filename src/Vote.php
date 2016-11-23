@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel Voteable.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BrianFaust\Voteable;
 
 use Carbon\Carbon;
@@ -44,7 +53,7 @@ class Vote extends Model
     {
         $query = $voteable->votes();
 
-        if (!empty($to)) {
+        if (! empty($to)) {
             $range = [new Carbon($from), new Carbon($to)];
         } else {
             $range = [
@@ -74,7 +83,7 @@ class Vote extends Model
 
     protected static function cast(Model $voteable, $value = 1)
     {
-        if (!$voteable->exists) {
+        if (! $voteable->exists) {
             return false;
         }
 
