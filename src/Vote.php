@@ -53,7 +53,7 @@ class Vote extends Model
     {
         $query = $voteable->votes();
 
-        if (! empty($to)) {
+        if (!empty($to)) {
             $range = [new Carbon($from), new Carbon($to)];
         } else {
             $range = [
@@ -83,7 +83,7 @@ class Vote extends Model
 
     protected static function cast(Model $voteable, $value = 1)
     {
-        if (! $voteable->exists) {
+        if (!$voteable->exists) {
             return false;
         }
 
