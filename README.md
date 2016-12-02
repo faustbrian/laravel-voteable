@@ -11,9 +11,7 @@ $ composer require faustbrian/laravel-voteable
 And then include the service provider within `app/config/app.php`.
 
 ``` php
-'providers' => [
-    BrianFaust\Voteable\VoteableServiceProvider::class
-];
+BrianFaust\Voteable\VoteableServiceProvider::class
 ```
 
 To get started, you'll need to publish the vendor assets and migrate:
