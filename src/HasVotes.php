@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace BrianFaust\Voteable;
 
-trait HasVotesTrait
+trait HasVotes
 {
     public function votes()
     {

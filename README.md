@@ -28,13 +28,12 @@ php artisan vendor:publish --provider="BrianFaust\Voteable\VoteableServiceProvid
 
 namespace App;
 
-use BrianFaust\Voteable\HasVotesTrait;
-use BrianFaust\Voteable\Interfaces\HasVotes;
+use BrianFaust\Voteable\HasVotes;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model implements HasVotes
+class User extends Model
 {
-    use HasVotesTrait;
+    use HasVotes;
 }
 ```
 
