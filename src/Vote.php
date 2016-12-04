@@ -24,43 +24,48 @@ namespace BrianFaust\Voteable;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Vote extends Model
 {
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function voteable()
+    public function voteable(): MorphTo
     {
         return $this->morphTo();
     }
 
-    public static function sum(Model $voteable)
+    public static function sum(Model $voteable): float
     {
         return $voteable->votes()
                         ->sum('value');
     }
 
-    public static function count(Model $voteable)
+    public static function count(Model $voteable): int
     {
         return $voteable->votes()
                         ->count();
     }
 
-    public static function countUps(Model $voteable, $value = 1)
-    {
-        return $voteable->votes()
-                        ->where('value', $value)
-                        ->count();
-    }
-
-    public static function countDowns(Model $voteable, $value = -1)
+    public static function countUps(Model $voteable, $value = 1): int
     {
         return $voteable->votes()
                         ->where('value', $value)
                         ->count();
     }
 
-    public static function countByDate(Model $voteable, $from, $to = null)
+    public static function countDowns(Model $voteable, $value = -1): int
+    {
+        return $voteable->votes()
+                        ->where('value', $value)
+                        ->count();
+    }
+
+    public static function countByDate(Model $voteable, $from, $to = null): int
     {
         $query = $voteable->votes();
 
@@ -77,22 +82,22 @@ class Vote extends Model
                      ->count();
     }
 
-    public static function up(Model $voteable)
+    public static function up(Model $voteable): bool
     {
-        return static::cast($voteable, 1);
+        return (bool) static::cast($voteable, 1);
     }
 
-    public static function down(Model $voteable)
+    public static function down(Model $voteable): bool
     {
-        return static::cast($voteable, -1);
+        return (bool) static::cast($voteable, -1);
     }
 
-    public function setValueAttribute($value)
+    public function setValueAttribute($value): void
     {
         $this->attributes['value'] = ($value == -1) ? -1 : 1;
     }
 
-    protected static function cast(Model $voteable, $value = 1)
+    protected static function cast(Model $voteable, $value = 1): bool
     {
         if (!$voteable->exists) {
             return false;
@@ -101,8 +106,8 @@ class Vote extends Model
         $vote = new static();
         $vote->value = $value;
 
-        return $vote->voteable()
-                    ->associate($voteable)
-                    ->save();
+        return (bool) $vote->voteable()
+            ->associate($voteable)
+            ->save();
     }
 }
