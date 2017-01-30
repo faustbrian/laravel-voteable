@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace BrianFaust\Voteable;
 
-use BrianFaust\ServiceProvider\ServiceProvider;
+use BrianFaust\ServiceProvider\AbstractServiceProvider as ServiceProvider;
 
 class VoteableServiceProvider extends ServiceProvider
 {
