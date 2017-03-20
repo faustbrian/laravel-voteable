@@ -22,9 +22,9 @@ declare(strict_types=1);
 
 namespace BrianFaust\Voteable;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider as ServiceProvider;
+use BrianFaust\ServiceProvider\AbstractServiceProvider;
 
-class VoteableServiceProvider extends ServiceProvider
+class VoteableServiceProvider extends AbstractServiceProvider
 {
     public function boot(): void
     {
