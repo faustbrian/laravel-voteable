@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Voteable.
  *
@@ -12,8 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Voteable;
+namespace BrianFaust\Voteable\Traits;
 
+use BrianFaust\Voteable\Models\Vote;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasVotes

@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Voteable.
  *
@@ -12,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\Voteable;
+namespace BrianFaust\Voteable\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -80,7 +77,7 @@ class Vote extends Model
         return (bool) static::cast($voteable, -1);
     }
 
-    public function setValueAttribute($value): void
+    public function setValueAttribute($value)
     {
         $this->attributes['value'] = ($value == -1) ? -1 : 1;
     }

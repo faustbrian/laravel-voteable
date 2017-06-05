@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel Voteable.
  *
@@ -14,17 +11,14 @@ declare(strict_types=1);
 
 namespace BrianFaust\Voteable;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class VoteableServiceProvider extends AbstractServiceProvider
+class VoteableServiceProvider extends ServiceProvider
 {
-    public function boot(): void
+    public function boot()
     {
-        $this->publishMigrations();
-    }
-
-    public function getPackageName(): string
-    {
-        return 'voteable';
+        $this->publishes([
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+        ], 'migrations');
     }
 }
