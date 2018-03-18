@@ -22,12 +22,12 @@ trait HasVotes
     {
         return $this->morphMany(Vote::class, 'voteable');
     }
-    
+
     public function upvote()
     {
         return Vote::up($this);
     }
-    
+
     public function downvote()
     {
         return Vote::down($this);
