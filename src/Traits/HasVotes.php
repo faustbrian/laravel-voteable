@@ -23,6 +23,11 @@ trait HasVotes
         return $this->morphMany(Vote::class, 'voteable');
     }
 
+    public function voted(string $ip)
+    {
+        return $voteable->votes()->where('ip', $value)->count();
+    }
+
     public function upvote()
     {
         return Vote::up($this);
