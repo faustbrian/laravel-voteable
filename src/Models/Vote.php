@@ -92,6 +92,7 @@ class Vote extends Model
 
         $vote = new static();
         $vote->value = $value;
+        $vote->voter = request()->ip();
 
         return (bool) $vote->voteable()
             ->associate($voteable)
