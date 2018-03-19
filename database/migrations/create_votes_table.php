@@ -22,6 +22,7 @@ class CreateVotesTable extends Migration
             $table->increments('id');
             $table->morphs('voteable');
             $table->integer('value');
+            $table->ipAddress('voter');
             $table->timestamps();
         });
     }
