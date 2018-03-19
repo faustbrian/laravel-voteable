@@ -25,7 +25,7 @@ trait HasVotes
 
     public function voted(string $ip)
     {
-        return this->votes()->where('ip', $ip)->count();
+        return $this->votes()->where('ip', $ip)->count();
     }
 
     public function upvote()
