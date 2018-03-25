@@ -64,15 +64,15 @@ class Vote extends Model
 
     public static function up(Model $voteable): bool
     {
-        return (bool) static::cast($voteable, 'up');
+        return (bool) static::vote($voteable, 'up');
     }
 
     public static function down(Model $voteable): bool
     {
-        return (bool) static::cast($voteable, 'down');
+        return (bool) static::vote($voteable, 'down');
     }
 
-    protected static function cast(Model $voteable, string $type): bool
+    protected static function vote(Model $voteable, string $type): bool
     {
         $vote = new static();
         $vote->type = $type;
