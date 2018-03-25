@@ -21,7 +21,7 @@ class CreateVotesTable extends Migration
         Schema::create('votes', function (Blueprint $table) {
             $table->increments('id');
             $table->morphs('voteable');
-            $table->integer('value');
+            $table->enum('type', ['up', 'down'])->default('up');
             $table->ipAddress('voter');
             $table->timestamps();
         });

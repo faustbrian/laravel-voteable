@@ -23,9 +23,19 @@ trait HasVotes
         return $this->morphMany(Vote::class, 'voteable');
     }
 
-    public function voted(string $ip)
+    public function hasVoted(string $ip)
     {
-        return $this->votes()->where('voter', $ip)->count();
+        return $this->votes()->whereVoter($ip)->count();
+    }
+
+    public function hasUpvoted(string $ip)
+    {
+        return $this->votes()->whereVoter($ip)->whereType('up')->count();
+    }
+
+    public function hasDownvoted(string $ip)
+    {
+        return $this->votes()->whereVoter($ip)->whereType('down')->count();
     }
 
     public function upvote()

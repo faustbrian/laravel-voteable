@@ -28,28 +28,22 @@ class Vote extends Model
 
     public static function sum(Model $voteable): float
     {
-        return $voteable->votes()
-                        ->sum('value');
+        return $voteable->votes()->count();
     }
 
     public static function count(Model $voteable): int
     {
-        return $voteable->votes()
-                        ->count();
+        return $voteable->votes()->count();
     }
 
-    public static function countUps(Model $voteable, $value = 1): int
+    public static function countUps(Model $voteable): int
     {
-        return $voteable->votes()
-                        ->where('value', $value)
-                        ->count();
+        return $voteable->votes()->where('type', 'up')->count();
     }
 
-    public static function countDowns(Model $voteable, $value = -1): int
+    public static function countDowns(Model $voteable): int
     {
-        return $voteable->votes()
-                        ->where('value', $value)
-                        ->count();
+        return $voteable->votes()->where('type', 'down')->count();
     }
 
     public static function countByDate(Model $voteable, $from, $to = null): int
@@ -65,37 +59,31 @@ class Vote extends Model
             ];
         }
 
-        return $query->whereBetween('created_at', $range)
-                     ->count();
+        return $query->whereBetween('created_at', $range)->count();
     }
 
     public static function up(Model $voteable): bool
     {
-        return (bool) static::cast($voteable, 1);
+        return (bool) static::cast($voteable, 'up');
     }
 
     public static function down(Model $voteable): bool
     {
-        return (bool) static::cast($voteable, -1);
+        return (bool) static::cast($voteable, 'down');
     }
 
-    public function setValueAttribute($value)
+    protected static function cast(Model $voteable, string $type): bool
     {
-        $this->attributes['value'] = ($value == -1) ? -1 : 1;
-    }
-
-    protected static function cast(Model $voteable, $value = 1): bool
-    {
-        if (!$voteable->exists) {
-            return false;
-        }
-
         $vote = new static();
-        $vote->value = $value;
+        $vote->type = $type;
         $vote->voter = request()->ip();
 
-        return (bool) $vote->voteable()
-            ->associate($voteable)
-            ->save();
+        static::unvote($voteable, $vote->voter);
+
+        return (bool) $vote->voteable()->associate($voteable)->save();
+    }
+
+    protected static function unvote(Model $voteable, string $ip) {
+        return $voteable->votes()->where('voter', $ip)->delete();
     }
 }
