@@ -83,7 +83,8 @@ class Vote extends Model
         return (bool) $vote->voteable()->associate($voteable)->save();
     }
 
-    protected static function unvote(Model $voteable, string $ip) {
+    protected static function unvote(Model $voteable, string $ip)
+    {
         return $voteable->votes()->where('voter', $ip)->delete();
     }
 }
