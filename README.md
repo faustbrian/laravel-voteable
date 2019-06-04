@@ -1,22 +1,22 @@
 # Laravel Voteable
 
-[![Build Status](https://img.shields.io/travis/faustbrian/Laravel-Voteable/master.svg?style=flat-square)](https://travis-ci.org/faustbrian/Laravel-Voteable)
-[![PHP from Packagist](https://img.shields.io/packagist/php-v/faustbrian/laravel-voteable.svg?style=flat-square)]()
-[![Latest Version](https://img.shields.io/github/release/faustbrian/Laravel-Voteable.svg?style=flat-square)](https://github.com/faustbrian/Laravel-Voteable/releases)
-[![License](https://img.shields.io/packagist/l/faustbrian/Laravel-Voteable.svg?style=flat-square)](https://packagist.org/packages/faustbrian/Laravel-Voteable)
+[![Build Status](https://img.shields.io/travis/artisanry/Voteable/master.svg?style=flat-square)](https://travis-ci.org/artisanry/Voteable)
+[![PHP from Packagist](https://img.shields.io/packagist/php-v/artisanry/voteable.svg?style=flat-square)]()
+[![Latest Version](https://img.shields.io/github/release/artisanry/Voteable.svg?style=flat-square)](https://github.com/artisanry/Voteable/releases)
+[![License](https://img.shields.io/packagist/l/artisanry/Voteable.svg?style=flat-square)](https://packagist.org/packages/artisanry/Voteable)
 
 ## Installation
 
 Require this package, with [Composer](https://getcomposer.org/), in the root directory of your project.
 
 ``` bash
-$ composer require faustbrian/laravel-voteable
+$ composer require artisanry/voteable
 ```
 
 To get started, you'll need to publish the vendor assets and migrate:
 
 ```
-php artisan vendor:publish --provider="BrianFaust\Voteable\VoteableServiceProvider" && php artisan migrate
+php artisan vendor:publish --provider="Artisanry\Voteable\VoteableServiceProvider" && php artisan migrate
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ php artisan vendor:publish --provider="BrianFaust\Voteable\VoteableServiceProvid
 
 namespace App;
 
-use BrianFaust\Voteable\HasVotes;
+use Artisanry\Voteable\HasVotes;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
@@ -79,7 +79,7 @@ $ phpunit
 
 ## Security
 
-If you discover a security vulnerability within this package, please send an e-mail to hello@brianfaust.me. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this package, please send an e-mail to hello@basecode.sh. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
@@ -88,4 +88,4 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## License
 
-[MIT](LICENSE) © [Brian Faust](https://brianfaust.me)
+[MIT](LICENSE) © [Brian Faust](https://basecode.sh)

@@ -1,12 +1,12 @@
 {
-    "name": "faustbrian/laravel-voteable",
+    "name": "artisanry/voteable",
     "description": "Voteable Polymorphic Eloquent Models for Laravel 5",
-    "keywords": ["laravel", "framework", "Laravel-voteable", "Laravel Voteable", "Brian Faust", "faustbrian"],
+    "keywords": ["laravel", "framework", "Laravel-voteable", "Laravel Voteable"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1",
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Voteable\\": "src/"
+            "Artisanry\\Voteable\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Voteable\\": "tests"
+            "Artisanry\\Tests\\Voteable\\": "tests"
         }
     },
     "config": {
@@ -38,7 +38,7 @@
         },
         "laravel": {
             "providers": [
-                "BrianFaust\\Voteable\\VoteableServiceProvider"
+                "Artisanry\\Voteable\\VoteableServiceProvider"
             ]
         }
     },
